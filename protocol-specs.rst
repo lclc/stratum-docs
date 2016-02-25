@@ -51,7 +51,7 @@ Responses are similar:
 
     .. code-block:: json
 
-       [ { "tx_hash:
+       [ { "tx_hash":
        "b87bc42725143f37558a0b41a664786d9e991ba89d43a53844ed7b3752545d4f",
        "height": 314847 }, { "tx_hash":
        "616be06545e5dd7daec52338858b6674d29ee6234ff1d50120f060f79630543c",
@@ -116,7 +116,7 @@ yet.
 .. code-block:: json
 
    { "id": 3, "method":
-   "server.peers.subscribe", "params": [] }<br/>
+   "server.peers.subscribe", "params": [] }
 
 *response:*
 
