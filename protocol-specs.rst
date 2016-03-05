@@ -10,7 +10,7 @@ Format
 
 Stratum protocol is based on `JSON-RPC 2.0`_ (although it doesn't
 include "jsonrpc" information in every message). Each
-message has to end with a line end character (\n).
+message has to end with a line end character (\\n).
 
 .. _JSON-RPC 2.0: http://www.jsonrpc.org/specification
 
@@ -63,8 +63,8 @@ Methods
 server.version
 ``````````````
 
-This is usually the first client's message, plus it's sent every
-minute as a keep-alive message. Client sends its own version and
+This is usually the first client's message, plus **it's sent every
+minute as a keep-alive message**. Client sends its own version and
 version of the protocol it supports. Server responds with its
 supported version of the protocol (higher number at server-side is
 usually compatible).
@@ -89,8 +89,25 @@ server.banner
 
    { "id": 1, "method": "server.banner", "params": [] }
 
+*response:*
+
+.. code-block:: json
+
+   {"id": 1, "result": "This node runs bitcoind 0.11.1 (can be any text)"}
+
 server.donation_address
 ```````````````````````
+*request:*
+
+.. code-block:: json
+
+   { "id": 1, "method": "server.donation_address", "params": [] }
+
+*response:*
+
+.. code-block:: json
+
+   {"id":1,"result":"12o9kVUrMLTivkk74HnNE76bTGmctit4ZV"}
 
 server.peers.subscribe
 ``````````````````````
