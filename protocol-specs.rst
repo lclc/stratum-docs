@@ -331,6 +331,7 @@ blockchain.address.listunspent
 blockchain.utxo.get_address
 ```````````````````````````
 Returns the address of the unspent output at position X for transaction Y.
+get_address is not used by the Electrum client and is only implemented in the Python server.
 
 Example CL call: (echo '{ "id": 1, "method":"blockchain.utxo.get_address", "params":["385c887f5566a3c09138d858c81ab8cb1a6d14f57ecf1e6b1af6ef4d3958c449", 0] }'; sleep 2) | ncat ecdsa.net 50001
 
@@ -361,9 +362,42 @@ Example CL call: (echo '{ "id": 1, "method":"blockchain.utxo.get_address", "para
 
 blockchain.block.get_header
 ```````````````````````````
+Returns the block at height X.
+
+Example CL call: (echo '{"id": 1, "method": "blockchain.block.get_header", "params": [1] }'; sleep 2) | ncat ecdsa.net 50001
+
+*request:*
+
+.. code-block:: json
+
+   {"id": 1, "method": "blockchain.block.get_header", "params": [1] }
+
+*response:*
+
+.. code-block:: json
+
+   {"id": 1, "result": {"nonce": 2573394689, "prev_block_hash": "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f", "timestamp": 1231469665, "merkle_root": "0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44a74b1efd512098", "block_height": 1, "version": 1, "bits": 486604799}}
+
 
 blockchain.block.get_chunk
 ``````````````````````````
+Returns the address of the unspent output at position X for transaction Y.
+get_chunk is not used by the Electrum client and is only implemented in the Python server.
+
+Example CL call: (echo '{ "id": 1, "method":"blockchain.block.get_chunk", "params":["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }'; sleep 2) | ncat ecdsa.net 50001
+
+*request:*
+
+.. code-block:: json
+
+   { "id": 1, "method":"blockchain.block.get_chunk", "params":["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }
+
+*response:*
+
+.. code-block:: json
+
+   {"id": 1, "result": "010000006397bb6abd4fc521c0d3f6071b5650389f0b4551bc40b4e6b067306900000000ace470aecda9c8818c8fe57688cd2a772b5a57954a00df0420a7dd546b6d2c576b0e7f49ffff001d33f0192f010...rest of the block as raw hex"}
+   
 
 blockchain.transaction.broadcast
 ````````````````````````````````
@@ -436,6 +470,27 @@ If the node doesn’t have enough information to make an estimate, the value -1 
 .. code-block:: json
 
    { "id": 17, "result": 0.00026809}
+
+
+blockchain.relayfee
+``````````````````````
+
+Relay fee per kilobyte that needs to be paid for a transaction to be relayed by the node.
+Note (yet) implemented in the Java Electrum Server.
+
+Example CL call: (echo '{ "id": 5, "method": "blockchain.relayfee", "params": [] }'; sleep 2) | ncat ecdsa.net 50001
+
+*request:*
+
+.. code-block:: json
+
+   { "id": 5, "method": "blockchain.relayfee", "params": [] }
+
+*response:*
+
+.. code-block:: json
+
+   {"id": 5, "result": 5e-05}
 
 
 External links
