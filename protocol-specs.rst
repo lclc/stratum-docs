@@ -262,6 +262,31 @@ blockchain.address.get_history
 
 blockchain.address.get_mempool
 ``````````````````````````````
+Get all transactions that are currently in the mempool for a given address.
+get_mempool is not used by the Electrum client and is only implemented in the Python server.
+
+Example CL call: (echo '{ "id": 1, "method":"blockchain.address.get_mempool", "params":["13pqgvvX3mk3vUP3JNAXFbptF8AFvi69Mr"] }'; sleep 2) | ncat --ssl ecdsa.net 50002
+
+
+*request:*
+
+.. code-block:: json
+
+   { "id": 1, "method":"blockchain.address.get_mempool", "params":["13pqgvvX3mk3vUP3JNAXFbptF8AFvi69Mr"] }
+
+*response (when transaction not yet confirmed):*
+
+.. code-block:: json
+
+   {"id": 1, "result": [{"tx_hash": "26c5af540ffade3ef4b9d9e446decf6131329492c4c980ba2c24c0e00e75539d", "height": 0}]}
+
+
+*response (with transaction confirmed):*
+
+.. code-block:: json
+   
+   {"id": 1, "result": []}
+
 
 blockchain.address.get_balance
 ``````````````````````````````
