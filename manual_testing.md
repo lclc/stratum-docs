@@ -13,7 +13,7 @@ A server running the jelectrum (Java implementation) on mainnet: *b.1209k.com 50
 
 > (echo '{ "id": 0, "method": "**server.version**", "params": [ "1.9.5", "0.6" ] }'; sleep 1) | ncat --**ssl** localhost 50002
 
-> echo '{ "id": 0, "method": "**server.banner**", "params": [] }'; sleep 0.1) | ncat localhost 50001
+> (echo '{ "id": 0, "method": "**server.banner**", "params": [] }'; sleep 0.1) | ncat localhost 50001
 
 > (echo '{ "id": 0, "method": "**server.banner**", "params": [] }'; sleep 0.1) | ncat --**ssl** localhost 50002
 
