@@ -60,11 +60,24 @@ A server running the jelectrum (Java implementation) on mainnet: *b.1209k.com 50
 
 > (echo '{ "id": 1, "method":"**blockchain.address.get_balance**", "params":["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }'; sleep 0.1) | ncat --**ssl** localhost 50002
 
-    # Not implemented:
-    blockchain.block.get_chunk
-    blockchain.address.get_proof
-    blockchain.address.get_mempool
-    blockchain.utxo.get_address
+    # Not implemented in Electrum-Client (only available with the Python-Server):
+    
+> (echo '{ "id": 1, "method":"**blockchain.address.get_mempool**", "params":["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }'; sleep 0.1) | ncat localhost 50001
+
+> (echo '{ "id": 1, "method":"**blockchain.address.get_mempool**", "params":["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }'; sleep 0.1) | ncat --**ssl** localhost 50002
+
+> (echo '{ "id": 1, "method":"**blockchain.address.get_proof**", "params":["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }'; sleep 0.1) | ncat localhost 50001
+
+> (echo '{ "id": 1, "method":"**blockchain.address.get_proof**", "params":["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }'; sleep 0.1) | ncat --**ssl** localhost 50002
+
+> (echo '{ "id": 1, "method":"**blockchain.utxo.get_address**", "params":["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }'; sleep 0.1) | ncat localhost 50001
+
+> (echo '{ "id": 1, "method":"**blockchain.utxo.get_address**", "params":["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }'; sleep 0.1) | ncat --**ssl** localhost 50002
+
+> (echo '{ "id": 1, "method":"**blockchain.block.get_chunk**", "params":["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }'; sleep 0.1) | ncat localhost 50001
+
+> (echo '{ "id": 1, "method":"**blockchain.block.get_chunk**", "params":["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }'; sleep 0.1) | ncat --**ssl** localhost 50002
+
 
 **Subscribes**
 
