@@ -330,6 +330,34 @@ blockchain.address.listunspent
 
 blockchain.utxo.get_address
 ```````````````````````````
+Returns the address of the unspent output at position X for transaction Y.
+
+Example CL call: (echo '{ "id": 1, "method":"blockchain.utxo.get_address", "params":["385c887f5566a3c09138d858c81ab8cb1a6d14f57ecf1e6b1af6ef4d3958c449", 0] }'; sleep 2) | ncat ecdsa.net 50001
+
+*request (Position 0 being an unspent output):*
+
+.. code-block:: json
+
+   { "id": 1, "method":"blockchain.utxo.get_address", "params":["385c887f5566a3c09138d858c81ab8cb1a6d14f57ecf1e6b1af6ef4d3958c449", 0] }
+
+*response:*
+
+.. code-block:: json
+
+   {"id": 1, "result": "1KdKnJ3EawVUVzPjpiU9w8ui6GLdUofMRu"}
+
+*request (Position 1 being a spent output):*
+
+.. code-block:: json
+
+   { "id": 1, "method":"blockchain.utxo.get_address", "params":["385c887f5566a3c09138d858c81ab8cb1a6d14f57ecf1e6b1af6ef4d3958c449", 1] }
+
+*response:*
+
+.. code-block:: json
+
+   {"id": 1, "result": null}
+
 
 blockchain.block.get_header
 ```````````````````````````
