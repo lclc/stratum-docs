@@ -26,6 +26,7 @@ Typical request looks like this:
 - id begins at 0 and every message has its unique id number
 - list and description of possible methods is below
 - params is an array, e.g.: [ "1myfirstaddress", "1mysecondaddress", "1andonemoreaddress" ]
+- params has to be sent, even when there are no parameters
 
 Response
 ````````
