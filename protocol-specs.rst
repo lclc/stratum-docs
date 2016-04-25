@@ -491,7 +491,7 @@ blockchain.relayfee
 ``````````````````````
 
 Relay fee per kilobyte that needs to be paid for a transaction to be relayed by the node.
-Note (yet) implemented in the Java Electrum Server.
+Not implemented in the (original) Python Electrum Server.
 
 Example CL call: (echo '{ "id": 5, "method": "blockchain.relayfee", "params": [] }'; sleep 2) | ncat ecdsa.net 50001
 
