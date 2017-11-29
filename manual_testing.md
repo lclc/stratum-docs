@@ -9,9 +9,9 @@ A server running the jelectrum (Java implementation) on mainnet: *b.1209k.com 50
 
 **Server methods**
 
-> (echo '{ "id": 0, "method": "**server.version**", "params": [ "1.9.5", "0.6" ] }'; sleep 0.1) | ncat localhost 50001
+> (echo '{ "id": 0, "method": "**server.version**", "params": [ "2.7.11", "1.0" ] }'; sleep 0.1) | ncat localhost 50001
 
-> (echo '{ "id": 0, "method": "**server.version**", "params": [ "1.9.5", "0.6" ] }'; sleep 1) | ncat --**ssl** localhost 50002
+> (echo '{ "id": 0, "method": "**server.version**", "params": [ "2.7.11", "1.0" ] }'; sleep 1) | ncat --**ssl** localhost 50002
 
 > (echo '{ "id": 0, "method": "**server.banner**", "params": [] }'; sleep 0.1) | ncat localhost 50001
 
@@ -61,7 +61,7 @@ A server running the jelectrum (Java implementation) on mainnet: *b.1209k.com 50
 > (echo '{ "id": 1, "method":"**blockchain.address.get_balance**", "params":["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }'; sleep 0.1) | ncat --**ssl** localhost 50002
 
     # Not implemented in Electrum-Client (only available with the Python-Server):
-    
+
 > (echo '{ "id": 1, "method":"**blockchain.address.get_mempool**", "params":["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }'; sleep 0.1) | ncat localhost 50001
 
 > (echo '{ "id": 1, "method":"**blockchain.address.get_mempool**", "params":["1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"] }'; sleep 0.1) | ncat --**ssl** localhost 50002
